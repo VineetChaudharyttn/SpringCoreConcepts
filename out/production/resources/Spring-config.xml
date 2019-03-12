@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--Question 1,2 -->
+    <bean id="database" class="question1and2.Database">
+        <property name="name" value="name of database"/>
+        <property name="port" value="8080"/>
+    </bean>
+
+    <!--Question 3 -->
+
+    <bean id="teaRestaurant" class="remaingQuestion.Restaurant" scope="prototype">
+        <property name="hotDrink" ref="tea"/>
+    </bean>
+    <bean id="tea" class="remaingQuestion.Tea" primary="true"/>
+    <!--Question 4 -->
+    <bean id="expressTeaRestaurant" class="remaingQuestion.Restaurant">
+        <property name="hotDrink">
+            <bean name="expressTea" class="remaingQuestion.ExpressTea"/>
+        </property>
+    </bean>
+
+
+    <!-- Question 5 -->
+    <bean id="complexBean" class="question5.Complex">
+        <property name="list">
+            <list>
+                <value>Item1</value>
+                <value>Item2</value>
+                <value>Item3</value>
+                <value>Item4</value>
+                <value>Item1</value>
+            </list>
+
+        </property>
+        <property name="map">
+            <map>
+                <entry key="1" value="Item1"/>
+                <entry key="2" value="Item2"/>
+                <entry key="3" value="Item3"/>
+                <entry key="4" value="Item4"/>
+                <entry key="1" value="Item5"/>
+            </map>
+        </property>
+        <property name="set">
+            <set>
+                <value>Item1</value>
+                <value>Item2</value>
+                <value>Item3</value>
+                <value>Item4</value>
+                <value>Item1</value>
+
+            </set>
+        </property>
+    </bean>
+    <!-- Question 6 -->
+    <!--Autowire by name-->
+    <bean id="hotDrink" class="remaingQuestion.Tea"/>
+    <bean id="PrepareTea" class="remaingQuestion.Restaurant" autowire="byName"/>
+    <!--Autowire by Type-->
+    <bean id="byTypeRest" class="remaingQuestion.Restaurant" autowire="byType"/>
+    <!--Autowire By constructor -->
+    <bean id="prepareTeaConstructor" class="remaingQuestion.Restaurant" autowire="constructor"/>
+
+    <!--Question7-->
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+
+    <!--Question9 & Question10-->
+    <context:component-scan base-package="remaingQuestion"/>
+    <context:annotation-config/>
+
+</beans>
