@@ -21,15 +21,13 @@ public class ClassMain {
         System.out.println(applicationContext.getBean("prepareTeaConstructor"));
 
 //Question7
-        System.out.println("Hash code for one object: "+applicationContext.getBean("teaRestaurant").hashCode());
-        System.out.println("Hash code for another object: "+applicationContext.getBean("teaRestaurant").hashCode());
+        System.out.println("Hash code for one object: " + applicationContext.getBean("teaRestaurant").hashCode());
+        System.out.println("Hash code for another object: " + applicationContext.getBean("teaRestaurant").hashCode());
 
 
 //Question10
 
         System.out.println(applicationContext.getBean("componentBean"));
-
-
 
 
     }

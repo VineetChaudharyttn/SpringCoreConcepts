@@ -1,12 +1,15 @@
 package remaingQuestion;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Component;
 
 @Component("componentBean")
 public class Restaurant {
-    //@Autowired                     /*Question 9*/
+    /*Question 9*/
+    @Autowired
+    @Qualifier("tea")
     private HotDrink hotDrink;
 
     //@Autowired                     /*Question 9*/
@@ -17,13 +20,13 @@ public class Restaurant {
     public Restaurant() {
     }
 
-
+    @Autowired
     public HotDrink getHotDrink() {
         return hotDrink;
     }
 
 
-//    @Required                     /*Question 8*/
+    //    @Required                     /*Question 8*/
     @Autowired                     /*Question 9*/
     public void setHotDrink(HotDrink hotDrink) {
         this.hotDrink = hotDrink;

@@ -67,8 +67,9 @@
     <!--Question7-->
     <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
 
-    <!--Question9 & Question10-->
-    <context:component-scan base-package="remaingQuestion"/>
+    <!--Question9-->
     <context:annotation-config/>
+    <!-- Question10-->
+    <context:component-scan base-package="remaingQuestion"/>
 
 </beans>
